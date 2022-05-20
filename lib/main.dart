@@ -4,12 +4,30 @@ void main() {
   runApp(MyApp()); // 앱구동
 }
 
+class Test extends StatefulWidget {
+  const Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
-  var a = 1;
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var a = 2;
 
   @override
   Widget build(BuildContext context) { // 세팅하기 위한 문법
@@ -19,8 +37,9 @@ class MyApp extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Text(a.toString()),
           onPressed: (){
-            print(a);
-            a++;
+            setState(() {
+              a++;
+            });
           },
         ),
         appBar: AppBar(),
