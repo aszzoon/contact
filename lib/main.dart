@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp()); // 앱구동
+  runApp(
+      MaterialApp( // 코드작성
+        home : MyApp()
+      )
+  ); // 앱구동
 }
 
 class Test extends StatefulWidget {
@@ -32,14 +36,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) { // 세팅하기 위한 문법
 
-    return MaterialApp( // 코드작성
-      home: Scaffold(
+    return  Scaffold(
         floatingActionButton: FloatingActionButton(
           child: Text(a.toString()),
-          onPressed: (){
-            setState(() {
-              a++;
-            });
+          onPressed: () {
+            showDialog(context: context, builder: (context){
+              return Dialog(child: Text('안녕'));
+          });
           },
         ),
         appBar: AppBar(),
@@ -53,9 +56,11 @@ class _MyAppState extends State<MyApp> {
             );
             },
         )
-      )
-    );
+      );
+
 
   }
 }
+
+//
 
